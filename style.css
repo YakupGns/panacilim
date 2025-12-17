@@ -1,0 +1,370 @@
+/* --- SIFIRLAMA VE TEMEL AYARLAR --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Renk Paleti (Otomasyon Sektörü İçin) */
+:root {
+    --ana-renk: #004085;
+    /* Koyu Kurumsal Mavi */
+    --vurgu-renk: #007bff;
+    /* Parlak Mavi */
+    --koyu-gri: #1a1a1a;
+    --acik-gri: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER --- */
+header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-ic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo h2 {
+    font-size: 28px;
+    color: var(--koyu-gri);
+    letter-spacing: -1px;
+}
+
+.mavi {
+    color: var(--vurgu-renk);
+}
+
+.nav-links ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 15px;
+    color: #444;
+}
+
+.nav-links a:hover,
+.nav-links a.aktif {
+    color: var(--vurgu-renk);
+}
+
+.buton-iletisim {
+    background-color: var(--ana-renk);
+    color: #fff !important;
+    padding: 12px 25px;
+    border-radius: 50px;
+}
+
+.buton-iletisim:hover {
+    background-color: var(--vurgu-renk);
+    transform: translateY(-2px);
+}
+
+/* Hamburger Menü (Gizli) */
+.menu-btn,
+.menu-icon {
+    display: none;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 600px;
+    /* Arka plana şık bir yapı görseli ekleyebilirsin */
+    background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+}
+
+.hero-icerik {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.mavi-yazi {
+    color: #4dabf7;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #ddd;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.btn-primary {
+    background: var(--vurgu-renk);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--ana-renk);
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--koyu-gri);
+}
+
+/* --- BÖLÜMLER --- */
+.bolum {
+    padding: 80px 0;
+}
+
+.gri-arkaplan {
+    background-color: var(--acik-gri);
+}
+
+.bolum-baslik {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--koyu-gri);
+    font-weight: 700;
+}
+
+.bolum-alt-yazi {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* --- KARTLAR (ÜRÜNLER) --- */
+.kartlar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.kart {
+    background: white;
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    border-bottom: 4px solid transparent;
+}
+
+.kart:hover {
+    transform: translateY(-10px);
+    border-bottom-color: var(--vurgu-renk);
+}
+
+.ikon {
+    font-size: 45px;
+    color: var(--vurgu-renk);
+    margin-bottom: 20px;
+}
+
+.kart h3 {
+    margin-bottom: 15px;
+    color: var(--koyu-gri);
+}
+
+/* --- KURUMSAL --- */
+.kurumsal-ic {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.kurumsal-resim,
+.kurumsal-yazi {
+    flex: 1;
+}
+
+.kurumsal-resim img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.sola-hizla {
+    text-align: left;
+}
+
+.ozellik-listesi {
+    margin-top: 20px;
+}
+
+.ozellik-listesi li {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.ozellik-listesi i {
+    color: var(--vurgu-renk);
+    margin-right: 10px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #111;
+    color: #bbb;
+    margin-top: auto;
+}
+
+.footer-ic {
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-kolon h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-left: 3px solid var(--vurgu-renk);
+    padding-left: 10px;
+}
+
+.footer-kolon ul li {
+    margin-bottom: 10px;
+}
+
+.footer-kolon ul li a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.footer-kolon p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alt-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    background: #000;
+}
+
+/* --- MOBİL UYUMLULUK --- */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 24px;
+    }
+
+    .nav-links {
+        display: block;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s ease-out;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-btn:checked~.nav-links {
+        max-height: 500px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px;
+    }
+
+    .buton-iletisim {
+        background: none;
+        color: var(--ana-renk) !important;
+        padding: 15px;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .kurumsal-ic {
+        flex-direction: column-reverse;
+    }
+}
