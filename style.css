@@ -480,3 +480,253 @@ footer {
         flex-direction: column-reverse;
     }
 }
+
+/* --- REFERANSLAR SAYFASI ÖZEL --- */
+
+/* Sayfa Başlığı (Hero yerine daha sade başlık) */
+.sayfa-baslik-alani {
+    background-color: var(--acik-gri);
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.sayfa-baslik-alani h1 {
+    font-size: 36px;
+    color: var(--ana-renk);
+    margin-bottom: 10px;
+}
+
+.sayfa-baslik-alani p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Referans Kutuları Izgarası */
+.referans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Ekran küçülürse kutular alta kayar */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Tekil Referans Kutusu */
+.referans-kutu {
+    background: white;
+    border: 1px solid #eee;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    /* Hepsi eşit boyda olsun */
+}
+
+/* Üzerine gelince havalansın */
+.referans-kutu:hover {
+    transform: translateY(-5px);
+    border-color: var(--ana-renk);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* İkon Ayarları (Logo yoksa ikon görünsün) */
+.referans-kutu i {
+    font-size: 40px;
+    color: #ccc;
+    /* Gri ikon */
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.referans-kutu:hover i {
+    color: var(--ana-renk);
+    /* Hover olunca ikon mavi olsun */
+}
+
+.referans-kutu h3 {
+    font-size: 18px;
+    color: #444;
+    font-weight: 700;
+}
+
+/* --- YAN MENÜLÜ SAYFA DÜZENİ --- */
+
+.icerik-alani {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+/* Sayfayı ikiye bölme (Flexbox) */
+.sayfa-yerlesim {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    /* Yukarı hizala */
+}
+
+/* SOL TARAFTAKİ MENÜ */
+.yan-menu {
+    width: 300px;
+    /* Menü genişliği */
+    flex-shrink: 0;
+    /* İçerik sıkışınca menü daralmasın */
+}
+
+.menu-kutu {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.menu-kutu h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ana-renk);
+    color: #333;
+}
+
+.menu-kutu ul li {
+    margin-bottom: 0;
+}
+
+.menu-kutu ul li a {
+    display: block;
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* Hover ve Aktif Link Durumu */
+.menu-kutu ul li a:hover,
+.menu-kutu ul li a.aktif-marka {
+    background-color: white;
+    color: var(--ana-renk);
+    padding-left: 15px;
+    /* Sağa kayma efekti */
+    border-left: 4px solid var(--ana-renk);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu-kutu ul li a i {
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+/* Yan Menüdeki İletişim Kutusu */
+.iletisim-kutu {
+    background: var(--ana-renk);
+    color: white;
+    text-align: center;
+}
+
+.iletisim-kutu h3 {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-yan-menu {
+    display: inline-block;
+    background: white;
+    color: var(--ana-renk);
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* SAĞ TARAFTAKİ ANA İÇERİK */
+.ana-icerik {
+    flex-grow: 1;
+    /* Kalan tüm boşluğu kapla */
+}
+
+.manset-resim {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ana-icerik h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.ana-icerik p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* Özellik Gridleri (3'lü kutu) */
+.ozellik-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.ozellik-item {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.ozellik-item i {
+    font-size: 30px;
+    color: var(--ana-renk);
+    margin-bottom: 10px;
+}
+
+/* Standart Liste (Madde imleri) */
+.liste-standart {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.liste-standart li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+/* MOBİL UYUMLULUK */
+@media (max-width: 768px) {
+    .sayfa-yerlesim {
+        flex-direction: column;
+        /* Mobilde alt alta gelsin */
+    }
+
+    .yan-menu {
+        width: 100%;
+        /* Menü tam genişlik olsun */
+        order: 2;
+        /* Menüyü içeriğin altına at (isteğe bağlı) */
+    }
+
+    .ozellik-grid {
+        grid-template-columns: 1fr;
+        /* Özellikler alt alta */
+    }
+
+    .manset-resim {
+        height: 250px;
+    }
+}
