@@ -59,14 +59,12 @@ header {
     height: 80px;
 }
 
-/* Logo */
 .logo img {
     height: 50px;
+    /* Boyut ayarı kalsın */
     width: auto;
     display: block;
-    background-color: white;
-    padding: 5px;
-    border-radius: 4px;
+    /* background-color ve padding satırlarını sildik */
 }
 
 /* --- MENÜ LİNKLERİ --- */
