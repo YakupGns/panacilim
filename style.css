@@ -15,7 +15,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Footer'ı hep en alta itmek için */
 }
 
 a {
@@ -56,7 +55,6 @@ header {
     background-color: var(--ana-renk);
     box-shadow: 0 4px 15px rgba(51, 102, 255, 0.3);
     position: sticky;
-    /* Sayfa kayınca üstte kalsın */
     top: 0;
     z-index: 1000;
 }
@@ -80,11 +78,9 @@ header {
     gap: 20px;
 }
 
-/* Link Alanı */
 .nav-links>ul>li {
     position: relative;
     padding: 25px 0;
-    /* Mouse kaçmasın diye geniş alan */
 }
 
 .nav-links a {
@@ -99,7 +95,6 @@ header {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
-/* Teklif Al Butonu */
 .buton-iletisim {
     background-color: var(--beyaz);
     color: var(--ana-renk) !important;
@@ -116,14 +111,12 @@ header {
 }
 
 /* =========================================
-   3. AÇILIR MENÜ (ANIMASYONLU & OKLU)
+   3. AÇILIR MENÜ (DROPDOWN)
    ========================================= */
 .alt-menu {
     display: none !important;
-    /* Varsayılan gizli */
     position: absolute;
     top: 85%;
-    /* Linkin hemen altına */
     left: -15px;
     background-color: white;
     min-width: 230px;
@@ -135,7 +128,6 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-/* Menü Tepesindeki Ok (Üçgen) */
 .alt-menu::before {
     content: '';
     position: absolute;
@@ -147,7 +139,6 @@ header {
     transform: rotate(45deg);
 }
 
-/* Hover Olunca Göster ve Animasyonlat */
 .acilir-kutu:hover .alt-menu {
     display: flex !important;
     animation: menuyukari 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
@@ -191,11 +182,12 @@ header {
 }
 
 /* =========================================
-   4. HERO (MANŞET ALANI)
+   4. HERO VE BUTONLAR
    ========================================= */
 .hero {
     height: 600px;
-    background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover;
+    background-color: #333;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -226,7 +218,6 @@ header {
 
 .mavi-yazi {
     color: var(--ana-renk);
-    /* Ana renkle aynı yapıldı */
 }
 
 .hero p {
@@ -236,7 +227,6 @@ header {
     color: #ddd;
 }
 
-/* Hero Butonları */
 .btn {
     display: inline-block;
     padding: 15px 35px;
@@ -269,7 +259,7 @@ header {
 }
 
 /* =========================================
-   5. ANASAYFA KARTLARI (TIKLANABİLİR)
+   5. KARTLAR VE BÖLÜMLER
    ========================================= */
 .bolum {
     padding: 80px 0;
@@ -308,7 +298,6 @@ header {
     transition: 0.3s;
     border-bottom: 4px solid transparent;
     display: block;
-    /* Link olduğu için blok yapıyoruz */
 }
 
 .kart:hover {
@@ -327,7 +316,6 @@ header {
     color: var(--koyu-gri);
 }
 
-/* Kartın altındaki "İncele" linki ve ok efekti */
 .kart-link {
     display: inline-block;
     margin-top: 20px;
@@ -340,22 +328,16 @@ header {
     width: 100%;
 }
 
-.kart-link i {
-    margin-left: 5px;
-    transition: 0.3s;
+.kart:hover .kart-link {
+    color: var(--koyu-renk);
 }
 
 .kart:hover .kart-link i {
     transform: translateX(5px);
 }
 
-/* Ok sağa kayar */
-.kart:hover .kart-link {
-    color: var(--koyu-renk);
-}
-
 /* =========================================
-   6. KURUMSAL (Hakkımızda Alanı)
+   6. KURUMSAL
    ========================================= */
 .kurumsal-ic {
     display: flex;
@@ -393,9 +375,8 @@ header {
 }
 
 /* =========================================
-   7. İÇ SAYFALAR (MANUSA, NICE vb.)
+   7. İÇ SAYFALAR (SIDEBAR YAPISI)
    ========================================= */
-/* Başlık Bandı */
 .sayfa-baslik-alani {
     background: var(--acik-gri);
     padding: 60px 0;
@@ -409,7 +390,6 @@ header {
     margin-bottom: 10px;
 }
 
-/* Yan Menülü Düzen */
 .icerik-alani {
     padding: 50px 0;
     background: #fff;
@@ -430,7 +410,6 @@ header {
     flex-grow: 1;
 }
 
-/* Yan Menü Kutusu */
 .menu-kutu {
     background: #f8f9fa;
     border: 1px solid #eee;
@@ -464,7 +443,6 @@ header {
     border-left: 4px solid var(--ana-renk);
 }
 
-/* Yan Menü İletişim */
 .iletisim-kutu {
     background: var(--ana-renk);
     color: white;
@@ -481,7 +459,6 @@ header {
     font-weight: bold;
 }
 
-/* İçerik Görselleri */
 .manset-resim {
     width: 100%;
     height: 400px;
@@ -523,7 +500,7 @@ header {
 }
 
 /* =========================================
-   8. TEKNİK SERVİS ÖZEL CSS
+   8. TEKNİK SERVİS & YETKİLİ ROZETLER
    ========================================= */
 .servis-kutu {
     background: white;
@@ -536,7 +513,6 @@ header {
     transition: 0.3s;
 }
 
-/* Kutu içindeki Logolar */
 .servis-logo {
     display: block;
     margin: 0 auto 20px auto;
@@ -545,7 +521,6 @@ header {
     object-fit: contain;
 }
 
-/* Yetkili Servis (Mavi Çerçeve) */
 .yetkili-kutu {
     border: 2px solid var(--ana-renk);
     background: #fdfdfd;
@@ -556,7 +531,6 @@ header {
     box-shadow: 0 10px 30px rgba(51, 102, 255, 0.15);
 }
 
-/* Sağ Üst Yeşil Etiket */
 .etiket {
     position: absolute;
     top: 15px;
@@ -570,7 +544,6 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Tamir Listesi (İkonlu) */
 .servis-listesi {
     list-style: none;
     margin-top: 20px;
@@ -580,7 +553,6 @@ header {
     margin-bottom: 15px;
     font-size: 16px;
     display: flex;
-    align-items: flex-start;
     gap: 10px;
 }
 
@@ -590,7 +562,42 @@ header {
 }
 
 /* =========================================
-   9. REFERANSLAR GRID
+   9. MANUSA SAYFASI ÖZEL TASARIMLAR
+   ========================================= */
+.yetkili-rozeti {
+    display: inline-block;
+    background: white;
+    border: 1px solid #e0e0e0;
+    padding: 15px 40px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.kart-activa {
+    border: 3px solid var(--ana-renk) !important;
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(51, 102, 255, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    background: white;
+}
+
+.satis-etiketi {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--ana-renk);
+    color: white;
+    padding: 5px 15px;
+    border-bottom-left-radius: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* =========================================
+   10. REFERANSLAR
    ========================================= */
 .referans-grid {
     display: grid;
@@ -631,7 +638,7 @@ header {
 }
 
 /* =========================================
-   10. FOOTER (ALT KISIM)
+   11. FOOTER
    ========================================= */
 footer {
     background: #111;
@@ -685,18 +692,14 @@ footer {
 }
 
 /* =========================================
-   11. MOBİL UYUMLULUK (TELEFONLAR İÇİN)
+   12. MOBİL UYUMLULUK
    ========================================= */
 .menu-btn,
 .menu-icon {
     display: none;
 }
 
-/* Başlangıçta gizli */
-
 @media (max-width: 768px) {
-
-    /* Hamburger Menü Mantığı */
     .menu-icon {
         display: block;
         cursor: pointer;
@@ -704,7 +707,6 @@ footer {
         font-size: 24px;
     }
 
-    /* Menü Çubuğu Çizimi */
     .nav-icon {
         background: var(--beyaz);
         height: 2px;
@@ -732,7 +734,6 @@ footer {
         top: -7px;
     }
 
-    /* Mobilde Menü Listesi */
     .nav-links {
         display: block;
         position: absolute;
@@ -776,7 +777,6 @@ footer {
         text-align: center;
     }
 
-    /* Mobilde Açılır Menü (Sade) */
     .alt-menu {
         position: static;
         display: none !important;
@@ -803,7 +803,6 @@ footer {
         padding: 10px;
     }
 
-    /* Diğer Mobil Ayarlar */
     .hero h1 {
         font-size: 32px;
     }

@@ -4,19 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markalarımız | Panaçılım</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Markalarımız | Panaçılım Yapı Otomasyon</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="ozel-marka-sayfasi">
+<body>
 
     <header>
         <div class="container header-ic">
             <div class="logo">
                 <a href="index.html">
-                    <img src="img/logo.png" alt="Panaçılım Logo">
+                    <img src="img/logo.png" alt="Panaçılım Yapı Otomasyon Logo">
                 </a>
             </div>
 
@@ -33,6 +32,8 @@
                             <li><a href="manusa.html">Manusa</a></li>
                             <li><a href="nice.html">Nice</a></li>
                             <li><a href="ninz.html">Ninz</a></li>
+                            <li><a href="#">Breda</a></li>
+                            <li><a href="#">Mosel</a></li>
                         </ul>
                     </li>
                     <li><a href="teknikservis.html">Teknik Servis</a></li>
@@ -47,54 +48,82 @@
         </div>
     </header>
 
-    <div class="split-container">
+    <section class="sayfa-baslik-alani">
+        <div class="container">
+            <h1>Çalıştığımız Markalar</h1>
+            <p>Dünyanın en prestijli yapı otomasyon markaları ile çözüm ortağıyız.</p>
+        </div>
+    </section>
 
-        <div class="split left" onclick="location.href='manusa.html';">
-            <div class="content">
-                <i class="fa-solid fa-door-open icon"></i>
-                <h1>MANUSA</h1>
-                <p>Otomatik Kapı Sistemleri</p>
-                <a href="manusa.html" class="btn">İncele</a>
+    <section class="bolum">
+        <div class="container">
+            <div class="kartlar-grid">
+
+                <a href="manusa.html" class="kart">
+                    <div class="ikon"><i class="fa-solid fa-door-open"></i></div>
+                    <h3>Manusa</h3>
+                    <p>İspanyol menşeli, dünyanın en hızlı fotoselli kapı sistemleri.</p>
+                    <span class="kart-link">Ürünleri İncele <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <a href="nice.html" class="kart">
+                    <div class="ikon"><i class="fa-solid fa-rss"></i></div>
+                    <h3>Nice</h3>
+                    <p>İtalyan tasarımı bariyer, bahçe kapısı motorları ve akıllı ev sistemleri.</p>
+                    <span class="kart-link">Ürünleri İncele <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <a href="ninz.html" class="kart">
+                    <div class="ikon"><i class="fa-solid fa-fire-extinguisher"></i></div>
+                    <h3>Ninz</h3>
+                    <p>Sertifikalı yangın kapıları ve panik bar çıkış sistemleri.</p>
+                    <span class="kart-link">Ürünleri İncele <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <a href="#" class="kart">
+                    <div class="ikon"><i class="fa-solid fa-warehouse"></i></div>
+                    <h3>Breda</h3>
+                    <p>Endüstriyel seksiyonel kapılar ve garaj kapısı çözümleri.</p>
+                    <span class="kart-link">Yakında Eklenecek <i class="fa-solid fa-clock"></i></span>
+                </a>
+
+                <a href="#" class="kart">
+                    <div class="ikon"><i class="fa-solid fa-blinds"></i></div>
+                    <h3>Mosel</h3>
+                    <p>Otomatik kepenk motorları, panjur sistemleri ve alıcı kartlar.</p>
+                    <span class="kart-link">Yakında Eklenecek <i class="fa-solid fa-clock"></i></span>
+                </a>
+
+                <a href="#" class="kart">
+                    <div class="ikon"><i class="fa-solid fa-road"></i></div>
+                    <h3>BFT</h3>
+                    <p>Hidrolik bariyerler ve yoğun kullanım için geçiş sistemleri.</p>
+                    <span class="kart-link">Yakında Eklenecek <i class="fa-solid fa-clock"></i></span>
+                </a>
+
             </div>
         </div>
-
-        <div class="split center" onclick="location.href='nice.html';">
-            <div class="content">
-                <i class="fa-solid fa-rss icon"></i>
-                <h1>NICE</h1>
-                <p>Bariyer ve Motor Sistemleri</p>
-                <a href="nice.html" class="btn">İncele</a>
-            </div>
-        </div>
-
-        <div class="split right" onclick="location.href='ninz.html';">
-            <div class="content">
-                <i class="fa-solid fa-fire-extinguisher icon"></i>
-                <h1>NINZ</h1>
-                <p>Yangın Kapısı Çözümleri</p>
-                <a href="ninz.html" class="btn">İncele</a>
-            </div>
-        </div>
-    </div>
+    </section>
 
     <footer id="iletisim">
         <div class="container footer-ic">
             <div class="footer-kolon">
                 <h3>Panaçılım Yapı</h3>
-                <p>Otomatik kapı ve geçiş sistemlerinde profesyonel çözüm ortağınız.</p>
+                <p>Güvenilir markalar, kaliteli işçilik.</p>
             </div>
             <div class="footer-kolon">
-                <h3>Hızlı Erişim</h3>
+                <h3>Ürün Grupları</h3>
                 <ul>
-                    <li><a href="manusa.html">Manusa</a></li>
-                    <li><a href="nice.html">Nice</a></li>
+                    <li><a href="manusa.html">Fotoselli Kapılar</a></li>
+                    <li><a href="nice.html">Bahçe Kapısı Motorları</a></li>
                     <li><a href="teknikservis.html">Teknik Servis</a></li>
                 </ul>
             </div>
             <div class="footer-kolon">
                 <h3>İletişim</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Ataşehir / İSTANBUL</p>
                 <p><i class="fa-solid fa-phone"></i> 0216 471 12 22</p>
-                <p><i class="fa-solid fa-mobile-screen"></i> 0553 209 24 45</p>
+                <p><i class="fa-solid fa-envelope"></i> bilgi@panacilim.com.tr</p>
             </div>
         </div>
         <div class="alt-footer">
