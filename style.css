@@ -40,6 +40,12 @@ ul {
     --acik-gri: #f8f9fa;
     --yesil: #28a745;
     /* Yetkili Servis Rengi */
+
+    /* YENİ KART RENKLERİ */
+    --kart-bg: #f8faff;
+    /* Çok hafif mavi-gri (Ayırt edici renk) */
+    --kart-border: #e2e8f0;
+    /* İnce çerçeve rengi */
 }
 
 .container {
@@ -111,7 +117,7 @@ header {
 }
 
 /* =========================================
-   3. AÇILIR MENÜ (DROPDOWN)
+   3. AÇILIR MENÜ
    ========================================= */
 .alt-menu {
     display: none !important;
@@ -186,14 +192,14 @@ header {
    ========================================= */
 .hero {
     height: 600px;
-    background: url('img/hero-bg.jpg') no-repeat center center/cover;
-    background-color: #333;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
     color: white;
+}
 }
 
 .hero-overlay {
@@ -259,7 +265,7 @@ header {
 }
 
 /* =========================================
-   5. KARTLAR VE BÖLÜMLER
+   5. KARTLAR VE BÖLÜMLER (GÜNCELLENDİ)
    ========================================= */
 .bolum {
     padding: 80px 0;
@@ -289,20 +295,31 @@ header {
     gap: 30px;
 }
 
+/* YENİ KART TASARIMI - DAHA BELİRGİN */
 .kart {
-    background: white;
+    background: var(--kart-bg);
+    /* Hafif renkli zemin */
+    border: 1px solid var(--kart-border);
+    /* İnce çerçeve */
     padding: 40px 25px;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: 0.3s;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    /* Çok hafif gölge */
+    transition: all 0.3s ease;
     border-bottom: 4px solid transparent;
     display: block;
 }
 
 .kart:hover {
     transform: translateY(-10px);
+    background: #ffffff;
+    /* Hoverda bembeyaz olsun */
+    border-color: transparent;
     border-bottom-color: var(--ana-renk);
+    /* Altına mavi çizgi */
+    box-shadow: 0 20px 40px rgba(51, 102, 255, 0.15);
+    /* Gölge belirginleşsin */
 }
 
 .ikon {
@@ -323,13 +340,14 @@ header {
     font-weight: 700;
     font-size: 14px;
     transition: 0.3s;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     padding-top: 15px;
     width: 100%;
 }
 
 .kart:hover .kart-link {
     color: var(--koyu-renk);
+    border-top-color: #eee;
 }
 
 .kart:hover .kart-link i {
@@ -337,7 +355,7 @@ header {
 }
 
 /* =========================================
-   6. KURUMSAL
+   6. KURUMSAL, YAN MENÜ VE DİĞERLERİ
    ========================================= */
 .kurumsal-ic {
     display: flex;
@@ -374,9 +392,7 @@ header {
     margin-right: 10px;
 }
 
-/* =========================================
-   7. İÇ SAYFALAR (SIDEBAR YAPISI)
-   ========================================= */
+/* İç Sayfalar */
 .sayfa-baslik-alani {
     background: var(--acik-gri);
     padding: 60px 0;
@@ -499,9 +515,7 @@ header {
     padding-left: 5px;
 }
 
-/* =========================================
-   8. TEKNİK SERVİS & YETKİLİ ROZETLER
-   ========================================= */
+/* Teknik Servis */
 .servis-kutu {
     background: white;
     padding: 30px;
@@ -561,9 +575,7 @@ header {
     margin-top: 5px;
 }
 
-/* =========================================
-   9. MANUSA SAYFASI ÖZEL TASARIMLAR
-   ========================================= */
+/* Manusa Özel */
 .yetkili-rozeti {
     display: inline-block;
     background: white;
@@ -596,9 +608,7 @@ header {
     font-size: 13px;
 }
 
-/* =========================================
-   10. REFERANSLAR
-   ========================================= */
+/* Referanslar */
 .referans-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -638,7 +648,7 @@ header {
 }
 
 /* =========================================
-   11. FOOTER
+   7. FOOTER
    ========================================= */
 footer {
     background: #111;
@@ -692,7 +702,7 @@ footer {
 }
 
 /* =========================================
-   12. MOBİL UYUMLULUK
+   8. MOBİL UYUMLULUK
    ========================================= */
 .menu-btn,
 .menu-icon {
@@ -831,5 +841,171 @@ footer {
 
     .manset-resim {
         height: 250px;
+    }
+}
+
+/* =========================================
+   9. MARKALAR SAYFASI (SPLIT)
+   ========================================= */
+body.ozel-marka-sayfasi {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #111;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    min-height: 100vh;
+}
+
+.ozel-marka-sayfasi header {
+    position: relative;
+}
+
+.ozel-marka-sayfasi .split-container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 80px);
+    min-height: 500px;
+    position: relative;
+}
+
+.ozel-marka-sayfasi .split {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.ozel-marka-sayfasi .split:last-child {
+    border-right: none;
+}
+
+.ozel-marka-sayfasi .left {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/manusa-kapi.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.ozel-marka-sayfasi .center {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/nice-bariyer.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.ozel-marka-sayfasi .right {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/ninz-yangin.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.ozel-marka-sayfasi .content {
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    padding: 20px;
+}
+
+.ozel-marka-sayfasi h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.ozel-marka-sayfasi p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.ozel-marka-sayfasi .icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s;
+}
+
+.ozel-marka-sayfasi .btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    background: transparent;
+}
+
+.ozel-marka-sayfasi .btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.ozel-marka-sayfasi .split:hover {
+    flex: 2;
+}
+
+.ozel-marka-sayfasi .split:hover .icon {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+.ozel-marka-sayfasi .split-container:hover .split:not(:hover) {
+    flex: 0.8;
+    filter: blur(2px) grayscale(80%);
+}
+
+.ozel-marka-sayfasi .split:hover .btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .ozel-marka-sayfasi .split-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .ozel-marka-sayfasi .split {
+        width: 100%;
+        height: 300px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ozel-marka-sayfasi h1 {
+        font-size: 2rem;
+    }
+
+    .ozel-marka-sayfasi .btn {
+        opacity: 1;
+        transform: translateY(0);
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    .ozel-marka-sayfasi .split-container:hover .split:not(:hover) {
+        filter: none;
+        flex: 1;
+    }
+
+    .ozel-marka-sayfasi .split:hover {
+        flex: 1;
     }
 }
