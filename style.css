@@ -200,7 +200,7 @@ header {
     position: relative;
     color: white;
 }
-}
+
 
 .hero-overlay {
     position: absolute;
@@ -1008,4 +1008,23 @@ body.ozel-marka-sayfasi {
     .ozel-marka-sayfasi .split:hover {
         flex: 1;
     }
+}
+
+/* =========================================
+   14. TEK SÜTUN (YAN MENÜSÜZ) SAYFA AYARI
+   ========================================= */
+.tek-sutun-container {
+    max-width: 900px !important;
+    /* Yazı satırı çok uzun olmasın, göz yorulur */
+    margin: 0 auto;
+    /* Sayfanın tam ortasına getir */
+    padding: 0 30px;
+    /* Mobilde ve kenarlarda nefes payı bırak */
+}
+
+/* Resimler taşmasın */
+.tek-sutun-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
