@@ -1,4 +1,4 @@
-/* global.js - Header, Footer, Popup ve Aktif Menü (Anasayfa Hariç) */
+/* global.js - Header, Footer, Aktif Menü ve Popup (Sadece Index'te) */
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -52,16 +52,16 @@ document.addEventListener("DOMContentLoaded", function () {
         var aktifSayfa = window.location.pathname.split("/").pop();
         if (aktifSayfa === "") aktifSayfa = "index.html";
 
-        // EĞER ANASAYFADA DEĞİLSEK BU İŞLEMİ YAP
+        // Eğer anasayfada DEĞİLSEK menüdeki ilgili linki parlat
         if (aktifSayfa !== "index.html") {
             var linkler = document.querySelectorAll('.nav-links ul li a');
 
             linkler.forEach(function (link) {
                 var linkHref = link.getAttribute('href');
                 if (linkHref === aktifSayfa) {
-                    link.style.color = "#ffffff";
-                    link.style.fontWeight = "700";
-                    link.style.opacity = "1";
+                    link.style.color = "#ffffff";       // Tam BEYAZ yap
+                    link.style.fontWeight = "600";      // Kibar Kalınlık
+                    link.style.opacity = "1";           // Parlak olsun
                 }
             });
         }
@@ -129,36 +129,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =========================================
-       3. KİBAR POPUP (SAĞ ALT BİLDİRİM)
+       3. KİBAR POPUP (SADECE INDEX.HTML'DE ÇIKAR)
        ========================================= */
-    const popupHTML = `
-    <div id="kis-bildirim" class="kis-bildirim-kutu" style="display:none;">
-        <span class="kis-kapat" id="kis-kapat-btn">&times;</span>
-        <div class="kis-ikon">
-            <i class="fa-solid fa-snowflake"></i>
+
+    // Şu anki sayfanın adını tekrar alıyoruz
+    var suankiSayfa = window.location.pathname.split("/").pop();
+
+    // Eğer sayfa adı boşsa (klasör kökü) veya "index.html" ise çalıştır
+    if (suankiSayfa === "" || suankiSayfa === "index.html") {
+
+        const popupHTML = `
+        <div id="kis-bildirim" class="kis-bildirim-kutu" style="display:none;">
+            <span class="kis-kapat" id="kis-kapat-btn">&times;</span>
+            <div class="kis-ikon">
+                <i class="fa-solid fa-snowflake"></i>
+            </div>
+            <div class="kis-icerik">
+                <h4>Kış Bakımı Zamanı!</h4>
+                <p>Kapınızın kış bakımlarını yaptırdınız mı?</p>
+                <a href="https://wa.me/905532092445?text=Kış%20bakımı%20randevusu%20almak%20istiyorum." target="_blank" class="kis-buton">
+                    <i class="fa-brands fa-whatsapp"></i> Randevu Al
+                </a>
+            </div>
         </div>
-        <div class="kis-icerik">
-            <h4>Kış Bakımı Zamanı!</h4>
-            <p>Kapınız soğukta donmasın, performansını korusun.</p>
-            <a href="https://wa.me/905532092445?text=Kış%20bakımı%20randevusu%20almak%20istiyorum." target="_blank" class="kis-buton">
-                <i class="fa-brands fa-whatsapp"></i> Randevu Al
-            </a>
-        </div>
-    </div>
-    `;
+        `;
 
-    document.body.insertAdjacentHTML("beforeend", popupHTML);
+        document.body.insertAdjacentHTML("beforeend", popupHTML);
 
-    const bildirimKutu = document.getElementById('kis-bildirim');
-    const bildirimKapat = document.getElementById('kis-kapat-btn');
+        const bildirimKutu = document.getElementById('kis-bildirim');
+        const bildirimKapat = document.getElementById('kis-kapat-btn');
 
-    setTimeout(function () {
-        if (bildirimKutu) bildirimKutu.style.display = 'flex';
-    }, 2000);
+        // 2 saniye sonra sağ alttan çıksın
+        setTimeout(function () {
+            if (bildirimKutu) bildirimKutu.style.display = 'flex';
+        }, 2000);
 
-    if (bildirimKapat) {
-        bildirimKapat.onclick = function () {
-            bildirimKutu.style.display = 'none';
+        if (bildirimKapat) {
+            bildirimKapat.onclick = function () {
+                bildirimKutu.style.display = 'none';
+            }
         }
     }
 
