@@ -132,10 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
        3. KİBAR POPUP (SADECE INDEX.HTML'DE ÇIKAR)
        ========================================= */
 
-    // Şu anki sayfanın adını tekrar alıyoruz
     var suankiSayfa = window.location.pathname.split("/").pop();
 
-    // Eğer sayfa adı boşsa (klasör kökü) veya "index.html" ise çalıştır
     if (suankiSayfa === "" || suankiSayfa === "index.html") {
 
         const popupHTML = `
@@ -159,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const bildirimKutu = document.getElementById('kis-bildirim');
         const bildirimKapat = document.getElementById('kis-kapat-btn');
 
-        // 2 saniye sonra sağ alttan çıksın
         setTimeout(function () {
             if (bildirimKutu) bildirimKutu.style.display = 'flex';
         }, 2000);
