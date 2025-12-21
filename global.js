@@ -1,4 +1,4 @@
-/*  Header, Footer ve Popup Yönetimi */
+/* global.js - Header, Footer, Popup ve Aktif Menü (Anasayfa Hariç) */
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
        1. HEADER (ÜST MENÜ) YERLEŞTİRME
        ========================================= */
     const headerKodu = `
-     <header>
+    <header>
         <div class="container header-ic">
-
             <div class="logo">
                 <a href="index.html">
                     <img src="img/logo.png" alt="Panaçılım Yapı Otomasyon Logo">
@@ -22,14 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <ul>
                     <li><a href="index.html">Anasayfa</a></li>
                     <li><a href="urunler.html">Ürünlerimiz</a></li>
-
                     <li class="acilir-kutu">
                         <a href="markalar.html">Markalar ▾</a>
                         <ul class="alt-menu">
                             <li><a href="manusa.html">Manusa</a></li>
                             <li><a href="nice.html">Nice</a></li>
                             <li><a href="ninz.html">Ninz</a></li>
-
                         </ul>
                     </li>
                     <li><a href="teknikservis.html">Teknik Servis</a></li>
@@ -46,79 +43,84 @@ document.addEventListener("DOMContentLoaded", function () {
     </header>
     `;
 
-    // Sayfada "header-alani" id'li bir kutu varsa içine menüyü bas
+    // Header'ı sayfaya bas
     const headerDiv = document.getElementById("header-alani");
     if (headerDiv) {
         headerDiv.innerHTML = headerKodu;
 
-        // --- AKTİF MENÜYÜ İŞARETLEME (BONUS) ---
-        // Hangi sayfadaysak o linkin altını çizili/koyu yapar
-        const currentPath = window.location.pathname.split("/").pop(); // örn: index.html
-        const menuLinks = document.querySelectorAll('.nav-links a');
+        /* --- AKTİF SAYFAYI BOYAMA (ANASAYFA HARİÇ) --- */
+        var aktifSayfa = window.location.pathname.split("/").pop();
+        if (aktifSayfa === "") aktifSayfa = "index.html";
 
-        menuLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === currentPath && linkPath !== '#') {
-                link.style.color = '#eef4ff'; // Hafif parlak yap
-                link.style.borderBottom = '2px solid white';
-            }
-        });
+        // EĞER ANASAYFADA DEĞİLSEK BU İŞLEMİ YAP
+        if (aktifSayfa !== "index.html") {
+            var linkler = document.querySelectorAll('.nav-links ul li a');
+
+            linkler.forEach(function (link) {
+                var linkHref = link.getAttribute('href');
+                if (linkHref === aktifSayfa) {
+                    link.style.color = "#ffffff";
+                    link.style.fontWeight = "700";
+                    link.style.opacity = "1";
+                }
+            });
+        }
     }
 
     /* =========================================
        2. FOOTER YERLEŞTİRME
        ========================================= */
     const footerKodu = `
-   <footer id="iletisim">
-    <div class="container footer-ic">
+    <footer id="iletisim">
+        <div class="container footer-ic">
 
-        <div class="footer-kolon">
-            <h3>Markalarımız</h3>
-            <ul>
-                <li><a href="manusa.html">Manusa</a></li>
-                <li><a href="nice.html">Nice</a></li>
-                <li><a href="ninz.html">Ninz</a></li>
-            </ul>
+            <div class="footer-kolon">
+                <h3>Markalarımız</h3>
+                <ul>
+                    <li><a href="manusa.html">Manusa</a></li>
+                    <li><a href="nice.html">Nice</a></li>
+                    <li><a href="ninz.html">Ninz</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-kolon">
+                <h3>Ürün Grupları</h3>
+                <ul>
+                    <li><a href="manusa.html">Fotoselli Kapılar</a></li>
+                    <li><a href="nice-robus.html">Bahçe Kapısı Motorları</a></li>
+                    <li><a href="nicebariyer.html">Kollu Bariyerler</a></li>
+                    <li><a href="yanginkapilari.html">Yangın Dayanımlı Kapılar</a></li>
+                    <li><a href="kepenk.html">Otomatik Kepenkler</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-kolon">
+                <h3>İletişim</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Ferhatpaşa Mah. 9. Sok. No: 17/A <br>Ataşehir / İSTANBUL</p>
+
+                <p>
+                    <a href="tel:02164711222">
+                        <i class="fa-solid fa-phone"></i> 0216 471 12 22
+                    </a>
+                </p>
+
+                <p>
+                    <a href="tel:905532092445">
+                        <i class="fa-solid fa-mobile-screen"></i> 0553 209 24 45
+                    </a>
+                </p>
+
+                <p>
+                    <a href="mailto:bilgi@panacilim.com.tr">
+                        <i class="fa-solid fa-envelope"></i> bilgi@panacilim.com.tr
+                    </a>
+                </p>
+            </div>
         </div>
-
-        <div class="footer-kolon">
-            <h3>Ürün Grupları</h3>
-            <ul>
-                <li><a href="manusa.html">Fotoselli Kapılar</a></li>
-                <li><a href="nice-robus.html">Bahçe Kapısı Motorları</a></li>
-                <li><a href="nicebariyer.html">Kollu Bariyerler</a></li>
-                <li><a href="yanginkapilari.html">Yangın Dayanımlı Kapılar</a></li>
-                <li><a href="kepenk.html">Otomatik Kepenkler</a></li>
-            </ul>
+        <div class="alt-footer">
+            <p>&copy; 2025 Panaçılım Yapı Otomasyon. Tüm hakları saklıdır.</p>
         </div>
-
-        <div class="footer-kolon">
-            <h3>İletişim</h3>
-            <p><i class="fa-solid fa-location-dot"></i> Ferhatpaşa Mah. 9. Sok. No: 17/A <br>Ataşehir / İSTANBUL</p>
-
-            <p>
-                <a href="tel:02164711222">
-                    <i class="fa-solid fa-phone"></i> 0216 471 12 22
-                </a>
-            </p>
-
-            <p>
-                <a href="tel:905532092445">
-                    <i class="fa-solid fa-mobile-screen"></i> 0553 209 24 45
-                </a>
-            </p>
-
-            <p>
-                <a href="mailto:bilgi@panacilim.com.tr">
-                    <i class="fa-solid fa-envelope"></i> bilgi@panacilim.com.tr
-                </a>
-            </p>
-        </div>
-    </div>
-    <div class="alt-footer">
-        <p>&copy; 2025 Panaçılım Yapı Otomasyon. Tüm hakları saklıdır.</p>
-    </div>
-</footer>
+    </footer>
     `;
 
     const footerDiv = document.getElementById("footer-alani");
@@ -145,20 +147,15 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
     `;
 
-    // Popup'ı sayfaya ekle
     document.body.insertAdjacentHTML("beforeend", popupHTML);
 
     const bildirimKutu = document.getElementById('kis-bildirim');
     const bildirimKapat = document.getElementById('kis-kapat-btn');
 
-    // 2 saniye sonra sağ alttan çıksın
     setTimeout(function () {
-        if (bildirimKutu) {
-            bildirimKutu.style.display = 'flex';
-        }
+        if (bildirimKutu) bildirimKutu.style.display = 'flex';
     }, 2000);
 
-    // Kapatma işlemi
     if (bildirimKapat) {
         bildirimKapat.onclick = function () {
             bildirimKutu.style.display = 'none';
