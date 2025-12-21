@@ -43,16 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
     </header>
     `;
 
-    // Header'ı sayfaya bas
     const headerDiv = document.getElementById("header-alani");
     if (headerDiv) {
         headerDiv.innerHTML = headerKodu;
 
-        /* --- AKTİF SAYFAYI BOYAMA (ANASAYFA HARİÇ) --- */
         var aktifSayfa = window.location.pathname.split("/").pop();
         if (aktifSayfa === "") aktifSayfa = "index.html";
 
-        // Eğer anasayfada DEĞİLSEK menüdeki ilgili linki parlat
         if (aktifSayfa !== "index.html") {
             var linkler = document.querySelectorAll('.nav-links ul li a');
 
