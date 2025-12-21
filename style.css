@@ -1028,3 +1028,108 @@ body.ozel-marka-sayfasi {
     height: auto;
     border-radius: 10px;
 }
+
+/* =========================================
+   15. KİBAR BİLDİRİM KUTUSU (SAĞ ALT)
+   ========================================= */
+.kis-bildirim-kutu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Sağ alt köşeye yapışık */
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Hafif gölge */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10000;
+    /* Her şeyin üstünde */
+    max-width: 350px;
+    border-left: 5px solid #3366ff;
+    /* Sol taraf mavi çizgi */
+    animation: alttanGelis 0.5s ease-out;
+    /* Kayarak gelme efekti */
+}
+
+.kis-ikon {
+    font-size: 30px;
+    color: #3366ff;
+    background: #eef4ff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.kis-icerik h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.kis-icerik p {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.kis-buton {
+    display: inline-block;
+    background: #25D366;
+    /* Whatsapp Yeşili */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.kis-buton:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+.kis-kapat {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.kis-kapat:hover {
+    color: #333;
+}
+
+/* Animasyon: Alttan yukarı kayarak gelme */
+@keyframes alttanGelis {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobilde çok yer kaplamasın diye tam genişlik yapalım */
+@media (max-width: 480px) {
+    .kis-bildirim-kutu {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        max-width: none;
+    }
+}

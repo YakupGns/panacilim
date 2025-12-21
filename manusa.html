@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manusa Kapı Sistemleri | Panaçılım</title>
+    <title>Manusa Kapı Sistemleri | Panaçılım Yapı Otomasyon</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -49,25 +49,38 @@
 
     <header>
         <div class="container header-ic">
-            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Panaçılım Logo"></a></div>
+
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Panaçılım Yapı Otomasyon Logo">
+                </a>
+            </div>
+
             <input type="checkbox" id="menu-btn" class="menu-btn">
             <label for="menu-btn" class="menu-icon"><span class="nav-icon"></span></label>
+
             <nav class="nav-links">
                 <ul>
                     <li><a href="index.html">Anasayfa</a></li>
                     <li><a href="urunler.html">Ürünlerimiz</a></li>
-                    <li class="acilir-kutu"><a href="markalar.html">Markalar ▾</a>
+
+                    <li class="acilir-kutu">
+                        <a href="markalar.html">Markalar ▾</a>
                         <ul class="alt-menu">
-                            <li><a href="manusa.html" style="font-weight: bold; color: var(--ana-renk);">Manusa</a></li>
+                            <li><a href="manusa.html">Manusa</a></li>
                             <li><a href="nice.html">Nice</a></li>
                             <li><a href="ninz.html">Ninz</a></li>
 
                         </ul>
                     </li>
-                    <li><a href="teknik-servis.html">Teknik Servis</a></li>
+                    <li><a href="teknikservis.html">Teknik Servis</a></li>
+                    <li><a href="kurumsal.html">Kurumsal</a></li>
                     <li><a href="referanslar.html">Referanslar</a></li>
-                    <li><a href="https://wa.me/905532092445" target="_blank" class="buton-iletisim"><i
-                                class="fa-brands fa-whatsapp"></i> Teklif Al</a></li>
+                    <li>
+                        <a href="https://wa.me/905532092445" target="_blank" class="buton-iletisim">
+                            <i class="fa-brands fa-whatsapp"></i> Teklif Al
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -104,7 +117,7 @@
                     <div class="ikon"><i class="fa-solid fa-crown"></i></div>
                     <h3 style="font-size: 26px; color: var(--ana-renk);">Manusa ACTIVA</h3>
                     <p style="font-size: 18px; font-weight: 500; color: #333;">Dünyanın En Hızlı Kapısı</p>
-                    <p style="margin-bottom: 20px;">25+ yıl ömür, saniyede 2 metre hız ve Visio+ teknolojisi.</p>
+                    <p style="margin-bottom: 20px;">Uzun ömür, saniyede 2 metre hız ve Visio+ teknolojisi.</p>
 
                     <ul
                         style="text-align: left; margin: 20px 0; font-size: 15px; color: #555; background: #f8f9fa; padding: 15px; border-radius: 5px;">
@@ -155,29 +168,9 @@
         </div>
     </section>
 
-    <footer id="iletisim">
-        <div class="container footer-ic">
-            <div class="footer-kolon">
-                <h3>Panaçılım Yapı</h3>
-                <p>Manusa Yetkili Bayi ve Servisi.</p>
-            </div>
-            <div class="footer-kolon">
-                <h3>Hızlı Erişim</h3>
-                <ul>
-                    <li><a href="manusa.html">Manusa Ana Sayfa</a></li>
-                    <li><a href="teknik-servis.html">Teknik Servis</a></li>
-                </ul>
-            </div>
-            <div class="footer-kolon">
-                <h3>İletişim</h3>
-                <p><i class="fa-solid fa-phone"></i> 0216 471 12 22</p>
-                <p><a href="tel:905532092445"><i class="fa-solid fa-mobile-screen"></i> 0553 209 24 45</a></p>
-            </div>
-        </div>
-        <div class="alt-footer">
-            <p>&copy; 2025 Panaçılım Yapı Otomasyon.</p>
-        </div>
-    </footer>
+    <div id="footer-alani"></div>
+    <script src="global.js"></script>
+
 </body>
 
 </html>
