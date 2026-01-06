@@ -1082,7 +1082,7 @@ body.ozel-marka-sayfasi {
 .kis-buton {
     display: inline-block;
     background: #25D366;
-    /* Whatsapp Yeşili */
+
     color: white;
     padding: 8px 15px;
     border-radius: 5px;
@@ -1111,7 +1111,7 @@ body.ozel-marka-sayfasi {
     color: #333;
 }
 
-/* Animasyon: Alttan yukarı kayarak gelme */
+
 @keyframes alttanGelis {
     from {
         transform: translateY(100px);
@@ -1124,7 +1124,6 @@ body.ozel-marka-sayfasi {
     }
 }
 
-/* Mobilde çok yer kaplamasın diye tam genişlik yapalım */
 @media (max-width: 480px) {
     .kis-bildirim-kutu {
         left: 10px;

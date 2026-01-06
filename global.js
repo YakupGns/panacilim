@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
         <div class="alt-footer">
-            <p>&copy; 2025 Panaçılım Yapı Otomasyon. Tüm hakları saklıdır.</p>
+            <p>&copy; 2026 Panaçılım Yapı Otomasyon. Tüm hakları saklıdır.</p>
         </div>
     </footer>
     `;
