@@ -1,0 +1,90 @@
+name: Deploy to Natro
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: natro-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out site
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Upload website files over explicit FTPS
+        env:
+          NATRO_FTPS_HOST: ${{ secrets.NATRO_FTPS_HOST }}
+          NATRO_FTPS_USERNAME: ${{ secrets.NATRO_FTPS_USERNAME }}
+          NATRO_FTPS_PASSWORD: ${{ secrets.NATRO_FTPS_PASSWORD }}
+        run: |
+          python3 - <<'PY'
+          import ftplib
+          import os
+          import ssl
+          import subprocess
+          from pathlib import Path
+
+          secret_names = (
+              "NATRO_FTPS_HOST", "NATRO_FTPS_USERNAME", "NATRO_FTPS_PASSWORD",
+          )
+          missing = [name for name in secret_names if not os.environ.get(name)]
+          if missing:
+              raise SystemExit("Configure the missing GitHub Actions secrets: " + ", ".join(missing))
+
+          extensions = {
+              ".html", ".css", ".js", ".mjs", ".svg", ".png", ".jpg", ".jpeg",
+              ".webp", ".avif", ".gif", ".ico", ".woff", ".woff2", ".ttf",
+              ".pdf", ".mp4", ".webm", ".xml", ".txt", ".webmanifest",
+          }
+          paths = subprocess.check_output(["git", "ls-files", "-z"]).split(b"\0")
+          files = []
+          for raw_path in paths:
+              if not raw_path:
+                  continue
+              path = Path(os.fsdecode(raw_path))
+              if any(part.startswith(".") or "\r" in part or "\n" in part for part in path.parts):
+                  continue
+              if path.suffix.lower() in extensions and path.is_file() and not path.is_symlink():
+                  files.append(path)
+          if Path("index.html") not in files:
+              raise SystemExit("No publishable index.html was found.")
+
+          # The FTP account starts in public_html. Only send tracked website files.
+          host, username, password = (os.environ[name] for name in secret_names)
+          directories = {Path(".")}
+          with ftplib.FTP_TLS(context=ssl.create_default_context(), timeout=30) as ftp:
+              ftp.connect(host, 21)
+              ftp.login(username, password)
+              ftp.prot_p()
+              for path in sorted(files, key=lambda file: (file.suffix.lower() == ".html", file)):
+                  for parent in reversed(path.parents):
+                      if parent in directories:
+                          continue
+                      remote = parent.as_posix()
+                      try:
+                          ftp.mkd(remote)
+                      except ftplib.error_perm:
+                          # A retry or an earlier deployment may have created it.
+                          start = ftp.pwd()
+                          ftp.cwd(remote)
+                          ftp.cwd(start)
+                      directories.add(parent)
+                  with path.open("rb") as source:
+                      ftp.storbinary("STOR " + path.as_posix(), source)
+                  print("Uploaded " + path.as_posix(), flush=True)
+          PY
+
+      - name: Check the public home page
+        run: curl --fail --silent --show-error --location --retry 3 --max-time 30 --output /dev/null https://panacilim.com.tr/
