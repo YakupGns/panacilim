@@ -82,16 +82,27 @@ header {
     .header-ic .logo {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: clamp(10px, calc(5vw - 43px), 20px);
+        flex-shrink: 0;
+    }
+
+    .header-ic .logo::before {
+        content: "";
+        order: 1;
+        width: 1px;
+        height: 32px;
+        border-radius: 1px;
+        background-color: rgba(255, 255, 255, 0.85);
         flex-shrink: 0;
     }
 
     .header-ic .logo-manusa {
         display: block;
+        order: 2;
     }
 
     .header-ic .logo-manusa img {
-        width: 116px;
+        width: clamp(118px, calc(5vw + 65px), 128px);
         height: auto;
         filter: brightness(0) invert(1);
     }
