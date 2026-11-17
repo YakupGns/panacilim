@@ -740,6 +740,37 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    .header-ic {
+        height: auto;
+        align-items: flex-start;
+        padding-top: 15px;
+        padding-bottom: 12px;
+    }
+
+    .header-ic .logo {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .header-ic .logo-manusa {
+        display: flex;
+        justify-content: center;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.85);
+    }
+
+    .header-ic .logo-manusa img {
+        width: 120px;
+        height: auto;
+        filter: brightness(0) invert(1);
+    }
+
+    .header-ic .menu-icon {
+        margin-top: 14px;
+    }
+
     .menu-icon {
         display: block;
         cursor: pointer;
@@ -777,7 +808,7 @@ footer {
     .nav-links {
         display: block;
         position: absolute;
-        top: 80px;
+        top: 100%;
         left: 0;
         width: 100%;
         background: white;
