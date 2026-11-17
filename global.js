@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 <a href="index.html">
                     <img src="img/logo.png" alt="Panaçılım Yapı Otomasyon Logo">
                 </a>
-                <a class="logo-manusa" href="manusa.html">
-                    <img src="img/logo-manusa.png" alt="Manusa">
-                </a>
             </div>
 
             <input type="checkbox" id="menu-btn" class="menu-btn">

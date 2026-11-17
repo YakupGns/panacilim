@@ -72,28 +72,10 @@ header {
     height: 80px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
 .logo img {
     height: 50px;
     width: auto;
     display: block;
-}
-
-.logo-manusa {
-    display: block;
-    padding: 8px 10px;
-    background: var(--beyaz);
-    border-radius: 6px;
-}
-
-.logo .logo-manusa img {
-    width: 100px;
-    height: auto;
 }
 
 .nav-links ul {
@@ -727,7 +709,7 @@ footer {
     display: none;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 768px) {
     .menu-icon {
         display: block;
         cursor: pointer;
@@ -830,27 +812,7 @@ footer {
         background: transparent;
         padding: 10px;
     }
-}
 
-@media (max-width: 480px) {
-    .logo {
-        gap: 8px;
-    }
-
-    .logo img {
-        height: 36px;
-    }
-
-    .logo-manusa {
-        padding: 6px 8px;
-    }
-
-    .logo .logo-manusa img {
-        width: 80px;
-    }
-}
-
-@media (max-width: 768px) {
     .hero h1 {
         font-size: 32px;
     }
