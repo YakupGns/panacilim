@@ -78,6 +78,25 @@ header {
     display: block;
 }
 
+@media (min-width: 1060px) {
+    .header-ic .logo {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-shrink: 0;
+    }
+
+    .header-ic .logo-manusa {
+        display: block;
+    }
+
+    .header-ic .logo-manusa img {
+        width: 116px;
+        height: auto;
+        filter: brightness(0) invert(1);
+    }
+}
+
 .nav-links ul {
     display: flex;
     align-items: center;
