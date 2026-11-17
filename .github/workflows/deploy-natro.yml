@@ -31,6 +31,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import ftplib
+          import io
           import os
           import ssl
           import subprocess
@@ -61,6 +62,13 @@ jobs:
           if Path("index.html") not in files:
               raise SystemExit("No publishable index.html was found.")
 
+          # Version shared assets in the uploaded HTML without editing tracked pages.
+          version = os.environ["GITHUB_SHA"][:12].encode("ascii")
+          asset_urls = {
+              b'href="style.css"': b'href="style.css?v=' + version + b'"',
+              b'src="global.js"': b'src="global.js?v=' + version + b'"',
+          }
+
           # The FTP account starts in public_html. Only send tracked website files.
           host, username, password = (os.environ[name] for name in secret_names)
           directories = {Path(".")}
@@ -81,8 +89,15 @@ jobs:
                           ftp.cwd(remote)
                           ftp.cwd(start)
                       directories.add(parent)
-                  with path.open("rb") as source:
-                      ftp.storbinary("STOR " + path.as_posix(), source)
+                  command = "STOR " + path.as_posix()
+                  if path.suffix.lower() == ".html":
+                      html = path.read_bytes()
+                      for original, versioned in asset_urls.items():
+                          html = html.replace(original, versioned)
+                      ftp.storbinary(command, io.BytesIO(html))
+                  else:
+                      with path.open("rb") as source:
+                          ftp.storbinary(command, source)
                   print("Uploaded " + path.as_posix(), flush=True)
           PY
 
